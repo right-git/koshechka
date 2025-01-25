@@ -8,6 +8,12 @@ This project is a Python-based tool for managing Telegram sessions and data. It 
 
 ---
 
+## Screenshots
+
+![Screenshot](./screenshots/image.png)
+
+---
+
 ## Features
 
 - **Session Management**: Seamlessly convert between tdata and string session formats.
