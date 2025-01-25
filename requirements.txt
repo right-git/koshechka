@@ -1,0 +1,6 @@
+colorama==0.4.6
+cryptg==0.5.0.post0
+loguru==0.5.3
+opentele==1.15.1
+Telethon==1.24.0
+tqdm==4.67.1
