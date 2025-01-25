@@ -39,8 +39,8 @@ pip install -r requirements.txt
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository_url>
-cd <repository_folder>
+git clone https://github.com/right-git/koshechka.git
+cd koshechka
 ```
 
 ### 2. Set Up Configuration
@@ -81,11 +81,6 @@ When prompted, select one of the modes:
 
 ---
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
 
 ## Contribution
 
