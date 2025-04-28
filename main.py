@@ -1,5 +1,6 @@
 import os
 import asyncio
+import traceback
 
 from loguru import logger
 from colorama import init, Fore
@@ -33,8 +34,7 @@ async def main():
 [1] - {Fore.YELLOW}Convert tdata to string session{Fore.RESET}
 [2] - {Fore.YELLOW}Convert session to tdata{Fore.RESET}
 [3] - {Fore.YELLOW}Dump dialog or group chat{Fore.RESET}
-"""
-    )
+""")
 
     tg_converter = TGConverter(API_ID, API_HASH)
 
@@ -66,6 +66,7 @@ async def main():
                 await tg_converter.session_to_tdata(sessions_path + "/" + session_file)
         except Exception as err:
             logger.error(err)
+            logger.error(traceback.format_exc())
         else:
             logger.success("All sessions converted")
             logger.info("You can find tdata data in the 'tdata_converted' folder")
@@ -76,8 +77,7 @@ async def main():
 Choose session mode:{Fore.RESET}
 [1] - {Fore.YELLOW}String Session from .txt{Fore.RESET}
 [2] - {Fore.YELLOW}.session File Session{Fore.RESET}
-"""
-        )
+""")
 
         if session_mode == "1":
             session_file = inpt("Enter path to .txt string session: ")

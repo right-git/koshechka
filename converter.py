@@ -256,7 +256,7 @@ class TGConverter:
         tdesk = await client.ToTDesktop(flag=UseCurrentSession, api=api)
         print(path)
 
-        session_name = path.split("/")[-1].replace(".session")
+        session_name = path.split("/")[-1].replace(".session", "")
         print(session_name)
         os.makedirs("tdata_converted", exist_ok=True)
 
