@@ -251,14 +251,16 @@ class TGConverter:
             logger.success(f"[{phone}.txt] - Successfully created a string session")
 
     async def session_to_tdata(self, path: str):
-        api = API.TelegramDesktop.Generate()
-        client = OpenTeleClient(path, api)
-        tdesk = await client.ToTDesktop(flag=UseCurrentSession, api=api)
-        print(path)
+        try:
+            api = API.TelegramDesktop.Generate()
+            client = OpenTeleClient(path, api)
+            tdesk = await client.ToTDesktop(flag=UseCurrentSession, api=api)
 
-        session_name = path.split("/")[-1].replace(".session", "")
-        print(session_name)
-        os.makedirs("tdata_converted", exist_ok=True)
+            session_name = path.split("/")[-1].replace(".session", "")
+            logger.info(f"Converting {session_name}")
+            os.makedirs("tdata_converted", exist_ok=True)
 
-        tdesk.SaveTData(f"tdata_converted/{session_name}/tdata")
-        logger.success(f"[{session_name}/tdata] - Successfully created a tdata folder")
+            tdesk.SaveTData(f"tdata_converted/{session_name}/tdata")
+            logger.success(f"[{session_name}/tdata] - Successfully created a tdata folder")
+        except:
+            logger.error(f"Error converting {path}")
